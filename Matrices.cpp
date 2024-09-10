@@ -18,19 +18,20 @@ void consdiv(float** matrix, float** result, int rowsize, int colsize, int cons)
 
 int main()
 {
-	int  operation, row1size = 0, row2size = 0, col1size = 0, col2size = 0, cons=0;
+	char heart = 3;
+	int  operation, row1size = 0, row2size = 0, col1size = 0, col2size = 0, cons = 0;
 	cout << "\n************************************************************************************\n\n";
-	cout << "\t\t\t\t============================";
-	cout << "\n\t\t\t\t|| Built by ' RTCC ' Team || \n";
-	cout << "\t\t\t\t============================";
+	cout << "\t\t\t\t===================================";
+	cout << "\n\t\t\t\t|| Built With " << heart << " by \"Bishoy Adel\" || \n";
+	cout << "\t\t\t\t===================================";
 	cout << "\n\n************************************************************************************";
 	while (1)
 	{
 		cout << "\n\n****************************************MENUE***************************************\n";
-		
+
 		cout << " press ' 1 ' to add tow matrices \n press ' 2 ' to subtract tow matrices \n press ' 3 ' to multiply tow matrices\n press ' 4 ' to find the determinant of matrix\n"
-		<< " press ' 5 ' to find tarnspose of matrix \n press ' 6 ' to find Adjoint of matrix \n press ' 7 ' to find Inverse of matrix\n"
-		<< " press ' 8 ' to add matrix to constant value \n press ' 9 ' to multiply matrix by const value\n press '10 ' to devide matrix by const value\n press '11 ' to exit the program\n\n";
+			<< " press ' 5 ' to find tarnspose of matrix \n press ' 6 ' to find Adjoint of matrix \n press ' 7 ' to find Inverse of matrix\n"
+			<< " press ' 8 ' to add matrix to constant value \n press ' 9 ' to multiply matrix by const value\n press '10 ' to devide matrix by const value\n press '11 ' to exit the program\n\n";
 
 		cout << "************************************************************************************\n";
 		//cout << "Select which operations you want to perform from the previous sentences ?  ";
@@ -101,7 +102,7 @@ int main()
 		}
 		else if (operation == 1 || operation == 2 || operation == 3)
 		{
-			
+
 			//---------------------------------------------------------------------------
 			do {
 				cout << "\nEnter number of rows of the first matrix: ";
@@ -112,12 +113,12 @@ int main()
 			} while (true);
 			//---------------------------------------------------------------------------
 			do {
-			cout << "\nEnter number of columns of the first matrix: ";
-			if (cin >> col1size) break;
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			cout << "\t\t\t\t    ERORR\n\t\t\tEnter a valid integer number";
-		    } while (true);
+				cout << "\nEnter number of columns of the first matrix: ";
+				if (cin >> col1size) break;
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "\t\t\t\t    ERORR\n\t\t\tEnter a valid integer number";
+			} while (true);
 			//---------------------------------------------------------------------------
 			do {
 				cout << "\nEnter number of rows of the socend matrix: ";
@@ -142,7 +143,7 @@ int main()
 			//cin >> row2size;
 			//cin >> col2size;
 		}
-		else if (operation==11)
+		else if (operation == 11)
 			break;
 		else
 			cout << "\n\t\t\t\t\tInvalid Operayion\n\n\t\t\t\t     Enter a valid operation\n\n";
@@ -171,8 +172,8 @@ int main()
 		float** inversee = new float* [row1size];
 		for (int x = 0; x < row1size; x++)
 			inversee[x] = new float[row1size];
-//*********************************************************************
-//*********************************************************************
+		//*********************************************************************
+		//*********************************************************************
 		switch (operation)
 		{
 		case 1:  // sum of tow matrix
@@ -191,8 +192,8 @@ int main()
 			else
 				cout << "\n\t\t\t\t\t\tE_R_R_O_R\n\n\t\t\tTow matrices should have the same order\n\n";
 			break;
-//*******************************************************************************************************************************
-//*******************************************************************************************************************************
+			//*******************************************************************************************************************************
+			//*******************************************************************************************************************************
 		case 2:
 			//subtertion of tow matrices
 			if (row1size == row2size && col1size == col2size) {
@@ -209,7 +210,7 @@ int main()
 			else
 				cout << "\n\t\t\t\t\t\tE_R_R_O_R\n\n\t\t\tTow matrices should have the same order\n\n";
 			break;
-//*******************************************************************************************************************************
+			//*******************************************************************************************************************************
 		case 3:
 			//product of tow matrices
 			if (col1size == row2size) {
@@ -229,7 +230,7 @@ int main()
 			else
 				cout << "\n\t\t\t\t\t\tE_R_R_O_R\n\n\t\t Num of columns of the first matrix should equal to the number of rows of the socend matrix\n\n";
 			break;
-//*****************************************************************************************************************************
+			//*****************************************************************************************************************************
 		case 4:
 			// determinant of matrix
 			matrix_cin(matrix1, row1size, col1size);
@@ -237,7 +238,7 @@ int main()
 			print(matrix1, row1size, col1size);
 			cout << "\n Determinant of the matrix = " << determinant(matrix1, row1size) << "\n\n";
 			break;
-//****************************************************************************************************************************
+			//****************************************************************************************************************************
 		case 5:
 			// transpose of matrix
 			matrix_cin(matrix1, row1size, col1size);
@@ -245,7 +246,7 @@ int main()
 			print(matrix1, row1size, col1size);
 			transpose(matrix1, row1size, col1size);
 			break;
-//****************************************************************************************************************************
+			//****************************************************************************************************************************
 		case 6:
 			//adjoint of matrix
 			matrix_cin(matrix1, row1size, col1size);
@@ -255,7 +256,7 @@ int main()
 			cout << "\nthe Adjoint matrix = \n";
 			print(adj, row1size, row1size);
 			break;
-//****************************************************************************************************************************
+			//****************************************************************************************************************************
 		case 7:
 			//Inverse of matrix
 			matrix_cin(matrix1, row1size, col1size);
@@ -265,7 +266,7 @@ int main()
 			cout << "\nthe Inverse matrix = \n";
 			print(inversee, row1size, row1size);
 			break;
-//****************************************************************************************************************************
+			//****************************************************************************************************************************
 		case 8:
 			//add by constant
 			matrix_cin(matrix1, row1size, col1size);
@@ -275,7 +276,7 @@ int main()
 			conssum(matrix1, result, row1size, col1size, cons);
 			print(result, row1size, col1size);
 			break;
-//****************************************************************************************************************************
+			//****************************************************************************************************************************
 		case 9:
 			//add by constant
 			matrix_cin(matrix1, row1size, col1size);
@@ -285,7 +286,7 @@ int main()
 			consmult(matrix1, result, row1size, col1size, cons);
 			print(result, row1size, col1size);
 			break;
-//*****************************************************************************************************************************
+			//*****************************************************************************************************************************
 		case 10:
 			//add by constant
 			matrix_cin(matrix1, row1size, col1size);
@@ -297,32 +298,32 @@ int main()
 			break;
 
 		}
-//*********************************************************************
-		/*
-		// deleting all matrices
-		for (int x = 0; x < row1size; x++)
-			delete[] matrix1[x];
-		delete[] matrix1;
-		for (int x = 0; x < row2size; x++)
-			delete[] matrix2[x];
-		delete[] matrix2;
-		for (int x = 0; x < row1size; x++)
-			delete[] result[x];
-		delete[] result;
-		for (int x = 0; x < row1size; x++)
-			delete[] temp[x];
-		delete[] temp;
-		for (int x = 0; x < row1size; x++)
-			delete[] adj[x];
-		delete[] adj;
-		for (int x = 0; x < row1size; x++)
-			delete[] inversee[x];
-		delete[] inversee;
-//*********************************************************************
-*/
+		//*********************************************************************
+				/*
+				// deleting all matrices
+				for (int x = 0; x < row1size; x++)
+					delete[] matrix1[x];
+				delete[] matrix1;
+				for (int x = 0; x < row2size; x++)
+					delete[] matrix2[x];
+				delete[] matrix2;
+				for (int x = 0; x < row1size; x++)
+					delete[] result[x];
+				delete[] result;
+				for (int x = 0; x < row1size; x++)
+					delete[] temp[x];
+				delete[] temp;
+				for (int x = 0; x < row1size; x++)
+					delete[] adj[x];
+				delete[] adj;
+				for (int x = 0; x < row1size; x++)
+					delete[] inversee[x];
+				delete[] inversee;
+		//*********************************************************************
+		*/
 	}
-	
-	
+
+
 
 	cout << "\n\n\t\t\t\t=============================================";
 	cout << "\n\t\t\t\t|| 2022 All Rights Reserved, ' RTCC ' Team || \n";
@@ -331,7 +332,7 @@ int main()
 }
 
 /*
-            // deleting all matrices
+			// deleting all matrices
 			for (int x = 0; x < row1size; x++)
 				delete[] matrix1[x];
 			delete[] matrix1;
@@ -372,7 +373,7 @@ void matrix_cin(float** matrix, int num_row, int num_col)
 			//-------------------------------------------------------------------
 			//cin >> matrix[row][col];
 		}
-			
+
 		cout << endl;
 	}
 }
@@ -518,7 +519,7 @@ bool inverse(float** matrix, float** inverse, int N)
 	return true;
 }
 // function to get transpose
-void transpose(float** matrix, int rowsize , int colsize)
+void transpose(float** matrix, int rowsize, int colsize)
 {
 	float** temp = new float* [colsize];
 	for (int x = 0; x < colsize; x++)
@@ -535,7 +536,7 @@ void transpose(float** matrix, int rowsize , int colsize)
 			cout << temp[i][j] << " ";
 		cout << endl;
 	}
-} 
+}
 //************************************************************************************************************
 // Recursive function for finding determinant of matrix.
 // n is current dimension of A[][].
@@ -553,7 +554,7 @@ float determinant(float** matrix, int n)
 
 	int sign = 1;  // To store sign multiplier
 
-	 // Iterate for each element of first row
+	// Iterate for each element of first row
 	for (int f = 0; f < n; f++)
 	{
 		// Getting Cofactor of A[0][f]
@@ -568,7 +569,7 @@ float determinant(float** matrix, int n)
 }
 //************************************************************************************************************
 //function matrix multiplication by constant
-void consmult (float** matrix,float** result ,int rowsize,int colsize,int cons)
+void consmult(float** matrix, float** result, int rowsize, int colsize, int cons)
 {
 	for (int row = 0; row < rowsize; row++) {
 		for (int col = 0; col < colsize; col++)
@@ -597,4 +598,3 @@ void consdiv(float** matrix, float** result, int rowsize, int colsize, int cons)
 		}
 	}
 }
-//RTCC means: Runtime Terror Chasers Clan ;
